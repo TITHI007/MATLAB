@@ -1,1 +1,14 @@
-
+%Audio Frequency
+load Cchord
+n = numel(y)
+t = 0:n-1
+t = t/fs
+plot(t,y)
+yfft = abs(fft(y))
+%{
+A Fourier transform will return information about the frequency content of the signal. The location of the dominant frequencies will show what notes are contained in the chord.
+%}
+f = 0:n-1
+f = f*fs/n
+plot(f,yfft)
+xlim([0 1000])
